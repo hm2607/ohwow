@@ -2,89 +2,89 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy Valentine’s Day ❤️</title>
+<title>For Someone Special ❤️</title>
 <style>
     body {
         margin: 0;
         padding: 0;
-        background: linear-gradient(to top right, #ff9a9e, #fad0c4);
-        height: 100vh;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        font-family: 'Segoe UI', sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: 'Arial', sans-serif;
+        height: 100vh;
         overflow: hidden;
+        text-align: center;
+        color: white;
     }
 
-    .card {
-        background: white;
+    .container {
+        background: rgba(255, 255, 255, 0.15);
         padding: 40px;
         border-radius: 20px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        text-align: center;
-        animation: fadeIn 2s ease-in-out;
+        backdrop-filter: blur(10px);
+        width: 350px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        animation: fadeIn 1.5s ease-in-out;
     }
 
-    h1 {
-        color: #ff4b5c;
-        font-size: 2.5em;
-        margin-bottom: 10px;
+    h2 {
+        margin-bottom: 20px;
     }
 
-    p {
-        font-size: 1.2em;
-        color: #444;
+    button {
+        padding: 10px 20px;
+        margin: 8px;
+        border: none;
+        border-radius: 20px;
+        background: white;
+        color: #ff4b7d;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #ff4b7d;
+        color: white;
+        transform: scale(1.1);
     }
 
     .heart {
         position: absolute;
-        bottom: -50px;
-        font-size: 24px;
-        animation: floatUp 5s linear infinite;
-        color: #ff4b5c;
-    }
-
-    @keyframes fadeIn {
-        from {opacity: 0; transform: scale(0.8);}
-        to {opacity: 1; transform: scale(1);}
+        bottom: -20px;
+        font-size: 20px;
+        animation: floatUp 6s linear infinite;
     }
 
     @keyframes floatUp {
-        0% {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        100% {
-            transform: translateY(-100vh);
-            opacity: 0;
-        }
+        0% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(-100vh); opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: scale(0.9);}
+        to {opacity: 1; transform: scale(1);}
     }
 </style>
 </head>
 <body>
 
-<div class="card">
-    <h1>Happy Valentine’s Day ❤️</h1>
-    <p>You make my world brighter every day.</p>
-    <p>Will you be my Valentine? 💌</p>
+<div class="container" id="box">
+    <h2>Hi beautiful ❤️</h2>
+    <p>How was your day?</p>
+    <button onclick="nextQuestion(1)">Good 😊</button>
+    <button onclick="nextQuestion(1)">Bad 😔</button>
 </div>
 
 <script>
-    function createHeart() {
-        const heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.innerHTML = "❤️";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
-        document.body.appendChild(heart);
+    function nextQuestion(step) {
+        const box = document.getElementById("box");
 
-        setTimeout(() => {
-            heart.remove();
-        }, 5000);
-    }
-
-    setInterval(createHeart, 300);
-</script>
-
-</body>
-</html>
+        if(step === 1) {
+            box.innerHTML = `
+                <h2>I hope it gets even better 💕</h2>
+                <p>How are you feeling right now?</p>
+                <button onclick="nextQuestion(2)">Happy 😄</button>
+                <button onclick="nextQuestion(2)">Tired 😴</button>
+                <button onclick="
